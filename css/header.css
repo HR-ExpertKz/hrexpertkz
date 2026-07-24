@@ -64,3 +64,76 @@
     color:#fff;
     cursor:pointer;
 }
+/* ==========================
+   МОБИЛЬНОЕ МЕНЮ
+========================== */
+
+@media (max-width: 768px) {
+
+    .header .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 1002;
+    }
+
+    .header-btn {
+        display: none;
+    }
+
+    .nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
+        width: 100%;
+
+        background: #0A2342;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        padding: 25px 0;
+
+        gap: 20px;
+
+        box-shadow: 0 15px 30px rgba(0,0,0,.25);
+
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav a {
+
+        width: 100%;
+
+        text-align: center;
+
+        padding: 12px;
+
+        font-size: 18px;
+
+        color: #fff;
+
+    }
+
+    .nav a:hover {
+        color: #D4AF37;
+    }
+
+}
