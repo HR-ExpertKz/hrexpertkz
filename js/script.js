@@ -138,3 +138,13 @@ if (form) {
     });
 
 }
+// Закрывать меню после выбора пункта
+document.querySelectorAll(".nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        nav.classList.remove("active");
+
+    });
+
+});
