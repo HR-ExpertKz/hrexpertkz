@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hrexpert.kz/sitemap.xml
+Sitemap: https://hr-expertkz.github.io/sitemap.xml
