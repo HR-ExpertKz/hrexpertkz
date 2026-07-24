@@ -27,12 +27,12 @@
     gap: 30px;
 }
 
-.nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: 600;
-    transition: .3s;
+.nav a{
+    color:#ffffff !important;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+    transition:.3s;
 }
 
 .nav a:hover {
@@ -107,8 +107,9 @@
     }
 
     .nav a:hover,
-    .nav a:active{
-        color:#D4AF37 !important;
-    }
+  .nav.active a{
+    color:#ffffff !important;
+    background:#0A2342 !important;
+}
 
 }
