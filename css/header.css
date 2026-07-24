@@ -67,54 +67,48 @@
    МОБИЛЬНАЯ ВЕРСИЯ
 ========================== */
 
-@media (max-width:768px) {
+@media (max-width:768px){
 
-    .menu-toggle {
-        display: block;
-        z-index: 1002;
+    .menu-toggle{
+        display:block;
+        color:#fff;
     }
 
-    .header-btn {
-        display: none;
+    .header-btn{
+        display:none;
     }
 
-    .nav {
-
-        display: none;
-
-        position: absolute;
-
-        top: 100%;
-
-        left: 0;
-
-        width: 100%;
-
-        background: #0A2342;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        gap: 0;
-
-        padding: 15px 0;
-
+    .nav{
+        display:none !important;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:#0A2342 !important;
+        flex-direction:column;
+        align-items:center;
+        padding:15px 0;
+        z-index:9999;
     }
 
-    .nav.active {
-        display: flex;
+    .nav.active{
+        display:flex !important;
     }
 
-    .nav a {
-
-        width: 100%;
-
-        padding: 18px;
-
-        text-align: center;
-
-        border-top: 1px solid rgba(255,255,255,.08);
-
+    .nav a{
+        display:block;
+        width:100%;
+        color:#ffffff !important;
+        text-align:center;
+        padding:18px;
+        text-decoration:none;
+        background:transparent;
+        border-bottom:1px solid rgba(255,255,255,.1);
     }
+
+    .nav a:hover,
+    .nav a:active{
+        color:#D4AF37 !important;
+    }
+
 }
