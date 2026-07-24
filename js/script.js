@@ -1,60 +1,126 @@
-// Кнопка наверх
-const topBtn = document.getElementById("topBtn");
+// =======================================
+// HR Expert KZ
+// script.js
+// =======================================
 
-window.onscroll = function () {
+// =============================
+// Всегда открывать страницу сверху
+// =============================
 
-    if (document.documentElement.scrollTop > 300) {
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
 
-        topBtn.style.display = "block";
+window.addEventListener("pageshow", () => {
+    window.scrollTo(0, 0);
+});
 
-    } else {
+window.addEventListener("load", () => {
 
-        topBtn.style.display = "none";
+    setTimeout(() => {
+
+        window.scrollTo(0, 0);
+
+    }, 50);
+
+});
+
+// =============================
+// PRELOADER
+// =============================
+
+window.addEventListener("load", () => {
+
+    const preloader = document.getElementById("preloader");
+
+    if (preloader) {
+
+        setTimeout(() => {
+
+            preloader.classList.add("hide");
+
+        }, 700);
 
     }
 
-};
+});
 
+// =============================
+// Кнопка "Наверх"
+// =============================
 
-topBtn.onclick = function () {
+const topBtn = document.getElementById("topBtn");
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+if (topBtn) {
 
-};
+    window.addEventListener("scroll", () => {
 
+        if (window.scrollY > 300) {
 
-// Анимация появления блоков
-const items = document.querySelectorAll(".fade-up");
+            topBtn.classList.add("show");
 
-function showItems() {
+        } else {
 
-    items.forEach(item => {
-
-        const top = item.getBoundingClientRect().top;
-
-        if (top < window.innerHeight - 100) {
-
-            item.classList.add("show");
+            topBtn.classList.remove("show");
 
         }
 
     });
 
+    topBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
 }
 
-window.addEventListener("scroll", showItems);
+// =============================
+// Появление блоков
+// =============================
 
-showItems();
+const fadeItems = document.querySelectorAll(".fade-up");
 
+if (fadeItems.length) {
 
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.15
+
+    });
+
+    fadeItems.forEach(item => observer.observe(item));
+
+}
+
+// =============================
 // Мобильное меню
+// =============================
+
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav");
 
-if (menuToggle) {
+if (menuToggle && nav) {
 
     menuToggle.addEventListener("click", () => {
 
@@ -62,10 +128,21 @@ if (menuToggle) {
 
     });
 
+    document.querySelectorAll(".nav a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            nav.classList.remove("active");
+
+        });
+
+    });
+
 }
+// =============================
+// Отправка формы в Make
+// =============================
 
-
-// Форма отправки в Make + Telegram
 const form = document.getElementById("contactForm");
 
 if (form) {
@@ -74,77 +151,128 @@ if (form) {
     const btnText = document.getElementById("btnText");
     const successMessage = document.getElementById("successMessage");
 
-
-    form.addEventListener("submit", async function (e) {
+    form.addEventListener("submit", async (e) => {
 
         e.preventDefault();
 
+        if (submitBtn) {
 
-        submitBtn.disabled = true;
-        btnText.textContent = "Отправка...";
-
-
-        const data = new FormData(form);
-
-
-        try {
-
-
-            await fetch("https://hook.eu1.make.com/qjyz7a9umkqbkgrstfh3gsvm71hwq5g4", {
-
-                method: "POST",
-
-                body: data
-
-            });
-
-
-
-            // очистка формы
-            form.reset();
-
-
-            // показать сообщение
-            successMessage.classList.add("show");
-
-
-            // вернуть кнопку
-            submitBtn.disabled = false;
-            btnText.textContent = "Получить консультацию";
-
-
-            // убрать сообщение через 5 секунд
-            setTimeout(() => {
-
-                successMessage.classList.remove("show");
-
-            }, 5000);
-
-
-
-        } catch (error) {
-
-
-            alert("Ошибка отправки. Попробуйте ещё раз.");
-
-
-            submitBtn.disabled = false;
-            btnText.textContent = "Получить консультацию";
-
+            submitBtn.disabled = true;
 
         }
 
+        if (btnText) {
+
+            btnText.textContent = "Отправка...";
+
+        }
+
+        const data = new FormData(form);
+
+        try {
+
+            const response = await fetch(
+                "https://hook.eu1.make.com/qjyz7a9umkqbkgrstfh3gsvm71hwq5g4",
+                {
+                    method: "POST",
+                    body: data
+                }
+            );
+
+            if (!response.ok) {
+
+                throw new Error("Ошибка");
+
+            }
+
+            form.reset();
+
+            if (successMessage) {
+
+                successMessage.classList.add("show");
+
+            }
+
+            if (btnText) {
+
+                btnText.textContent = "✓ Заявка отправлена";
+
+            }
+
+            setTimeout(() => {
+
+                if (successMessage) {
+
+                    successMessage.classList.remove("show");
+
+                }
+
+                if (submitBtn) {
+
+                    submitBtn.disabled = false;
+
+                }
+
+                if (btnText) {
+
+                    btnText.textContent = "Получить консультацию";
+
+                }
+
+            }, 4000);
+
+        }
+
+        catch (error) {
+
+            alert("Не удалось отправить заявку. Попробуйте ещё раз.");
+
+            if (submitBtn) {
+
+                submitBtn.disabled = false;
+
+            }
+
+            if (btnText) {
+
+                btnText.textContent = "Получить консультацию";
+
+            }
+
+        }
 
     });
 
 }
-// Закрывать меню после выбора пункта
-document.querySelectorAll(".nav a").forEach(link => {
 
-    link.addEventListener("click", () => {
+// =============================
+// Плавная прокрутка меню
+// =============================
 
-        nav.classList.remove("active");
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function (e) {
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "start"
+
+            });
+
+        }
 
     });
 
 });
+
+// =============================
+// Конец файла
+// =============================
