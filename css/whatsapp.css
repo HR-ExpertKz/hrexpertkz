@@ -1,0 +1,25 @@
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(37,211,102,.45);
+    transition:.3s;
+    z-index:999;
+}
+
+.whatsapp img{
+    width:34px;
+    height:34px;
+}
+
+.whatsapp:hover{
+    transform:scale(1.12);
+    box-shadow:0 15px 40px rgba(37,211,102,.6);
+}
