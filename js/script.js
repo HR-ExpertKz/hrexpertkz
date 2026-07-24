@@ -15,15 +15,7 @@ window.addEventListener("pageshow", () => {
     window.scrollTo(0, 0);
 });
 
-window.addEventListener("load", () => {
 
-    setTimeout(() => {
-
-        window.scrollTo(0, 0);
-
-    }, 50);
-
-});
 
 // =============================
 // PRELOADER
@@ -31,15 +23,17 @@ window.addEventListener("load", () => {
 
 window.addEventListener("load", () => {
 
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo(0, 0);
+
     const preloader = document.getElementById("preloader");
 
     if (preloader) {
 
-        setTimeout(() => {
-
-            preloader.classList.add("hide");
-
-        }, 700);
+        preloader.classList.add("hide");
 
     }
 
