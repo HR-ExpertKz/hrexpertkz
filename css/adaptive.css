@@ -1,213 +1,617 @@
 
-/* Общая адаптация всех блоков */
+/* ==========================================
+   RESPONSIVE
+   PART 1
+   Общие стили + Header + Hero
+========================================== */
 
-@media(max-width:768px){
+
+/* ===========================
+   ОБЩИЕ НАСТРОЙКИ
+=========================== */
+
+@media (max-width:1200px){
 
 .container{
+
     width:100%;
-    max-width:100%;
+    max-width:1140px;
+
+    padding-left:25px;
+    padding-right:25px;
+
+    margin:0 auto;
+
+}
+
+}
+
+@media (max-width:992px){
+
+.container{
+
+    max-width:960px;
+
     padding-left:20px;
     padding-right:20px;
-    margin:0 auto;
+
 }
 
 section{
-    width:100%;
+
     overflow:hidden;
+
 }
 
+.section-subtitle,
 .section-title,
-.section-description,
-.section-subtitle{
+.section-description{
+
     text-align:center;
-}
-
-.about-container,
-.hero-container,
-.contacts-container{
-    width:100%;
-    margin:0 auto;
-}
 
 }
-/* ===========================
-   Планшеты
-=========================== */
 
-@media (max-width: 992px){
+.section-title{
 
-.header .container{
-    width:95%;
-    padding:15px;
+    font-size:38px;
+
 }
 
-.nav{
-    gap:20px;
-}
+.section-description{
 
-.nav a{
-    font-size:15px;
-}
-
-.header-btn{
-    padding:12px 18px;
-    font-size:15px;
-}
-
-.hero{
-    padding:70px 0;
-}
-
-.hero-container{
-    flex-direction:column-reverse;
-    text-align:center;
-    gap:40px;
-}
-
-.hero h1{
-    font-size:42px;
-}
-
-.hero-subtitle{
-    font-size:18px;
-}
-
-.hero p{
     font-size:17px;
-}
 
-.hero-image img{
-    max-width:500px;
-    margin:0 auto;
-}
-
-.hero-stats{
-    justify-content:center;
-}
+    line-height:1.7;
 
 }
 
-/* ===========================
-   Телефоны
-=========================== */
+}
 
 @media (max-width:768px){
 
-.header .container{
-    flex-direction:column;
-    gap:20px;
+.container{
+
+    width:100%;
+
+    max-width:100%;
+
+    padding-left:20px;
+    padding-right:20px;
+
 }
 
-.logo img{
-    height:55px;
+.section-title{
+
+    font-size:32px;
+
+    line-height:1.3;
+
 }
 
-.nav{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-}
+.section-description{
 
-.hero{
-    padding:60px 0;
-}
-
-.hero h1{
-    font-size:34px;
-}
-
-.hero-subtitle{
-    font-size:17px;
-}
-
-.hero p{
     font-size:16px;
-}
 
-.hero-button{
-    width:100%;
-    text-align:center;
-}
-
-.hero-stats{
-    flex-direction:column;
-    align-items:center;
-}
-
-.hero-stat{
-    width:100%;
-    max-width:300px;
-}
+    line-height:1.7;
 
 }
 
-/* ===========================
-   Маленькие телефоны
-=========================== */
+}
 
 @media (max-width:480px){
 
-.hero h1{
+.container{
+
+    padding-left:16px;
+    padding-right:16px;
+
+}
+
+.section-title{
+
     font-size:28px;
-    line-height:1.3;
+
 }
 
-.hero-tag{
-    font-size:12px;
+.section-description{
+
+    font-size:15px;
+
 }
 
-.hero-button{
-    padding:16px;
-    font-size:16px;
+}
+
+
+
+/* ===========================
+   HEADER
+=========================== */
+
+@media (max-width:992px){
+
+.header{
+
+    padding:14px 0;
+
+}
+
+.header .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo img{
+
+    height:60px;
+
+}
+
+.nav{
+
+    gap:20px;
+
+}
+
+.nav a{
+
+    font-size:15px;
+
+}
+
+.header-btn{
+
+    padding:12px 20px;
+
+    font-size:15px;
+
+}
+
+}
+
+
+
+@media (max-width:768px){
+
+.header{
+
+    position:fixed;
+
+    width:100%;
+
+}
+
+.header .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo img{
+
+    height:54px;
+
+}
+
+.menu-toggle{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.nav{
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    width:100%;
+
+    background:#ffffff;
+
+    display:none;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:24px;
+
+    padding:30px 20px;
+
+    border-top:1px solid rgba(0,0,0,.05);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.nav.active{
+
+    display:flex;
+
+}
+
+.nav a{
+
+    font-size:17px;
+
+}
+
+.header-btn{
+
+    display:none;
+
+}
+
+}
+
+
+
+@media (max-width:480px){
+
+.logo img{
+
+    height:48px;
+
+}
+
+.menu-toggle{
+
+    font-size:28px;
+
+}
+
+.nav{
+
+    padding:25px 15px;
+
+}
+
+}
+
+
+
+/* ===========================
+   HERO
+=========================== */
+
+@media (max-width:992px){
+
+.hero{
+
+    padding:80px 0;
+
+}
+
+.hero-container{
+
+    flex-direction:column-reverse;
+
+    text-align:center;
+
+    gap:50px;
+
+}
+
+.hero-content{
+
+    width:100%;
+
+}
+
+.hero-image{
+
+    width:100%;
+
+}
+
+.hero-image img{
+
+    width:100%;
+
+    max-width:500px;
+
+    margin:0 auto;
+
+}
+
+.hero h1{
+
+    font-size:44px;
+
+    line-height:1.2;
+
+}
+
+.hero-subtitle{
+
+    font-size:19px;
+
 }
 
 .hero p{
-    font-size:15px;
+
+    font-size:17px;
+
+}
+
+.hero-buttons{
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-stats{
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
 }
 
 }
+
+
+
+@media (max-width:768px){
+
+.hero{
+
+    padding:70px 0;
+
+}
+
+.hero h1{
+
+    font-size:36px;
+
+}
+
+.hero-subtitle{
+
+    font-size:17px;
+
+}
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+    align-items:center;
+
+    width:100%;
+
+}
+
+.hero-button{
+
+    width:100%;
+
+    max-width:320px;
+
+    text-align:center;
+
+}
+
+.hero-stats{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.hero-stat{
+
+    width:100%;
+
+    max-width:320px;
+
+}
+
+}
+
+
+
+@media (max-width:480px){
+
+.hero{
+
+    padding:60px 0;
+
+}
+
+.hero-tag{
+
+    font-size:12px;
+
+}
+
+.hero h1{
+
+    font-size:30px;
+
+}
+
+.hero-subtitle{
+
+    font-size:16px;
+
+}
+
+.hero p{
+
+    font-size:15px;
+
+}
+
+.hero-button{
+
+    padding:16px 22px;
+
+    font-size:16px;
+
+}
+
+}
+/* ==========================================
+   RESPONSIVE
+   PART 2
+   About + Services + Work + Why
+========================================== */
+
+
 /* ===========================
    ABOUT
 =========================== */
 
 @media (max-width:992px){
 
-.about-container{
-    flex-direction:column;
-    text-align:center;
+.about{
+
+    padding:80px 0;
+
+}
+
+.about-wrapper{
+
+    grid-template-columns:1fr;
+
     gap:50px;
+
+    text-align:center;
+
+}
+
+.about-image{
+
+    display:flex;
+
+    justify-content:center;
+
 }
 
 .about-image img{
-    max-width:450px;
+
     width:100%;
+
+    max-width:450px;
+
 }
 
-.about-features{
-    margin-top:30px;
+.about-content{
+
+    width:100%;
+
 }
 
-.feature{
-    text-align:left;
+.about-cards{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.about-card{
+
+    padding:25px 20px;
+
 }
 
 }
 
 @media (max-width:768px){
 
-.about h2{
-    font-size:32px;
-}
+.about{
 
-.about-description{
-    font-size:16px;
-}
-
-.feature{
-    padding:18px;
-}
+    padding:70px 0;
 
 }
+
+.about-wrapper{
+
+    gap:40px;
+
+}
+
+.about-image img{
+
+    max-width:360px;
+
+}
+
+.about-cards{
+
+    grid-template-columns:1fr;
+
+}
+
+.about-card{
+
+    text-align:center;
+
+    padding:24px 20px;
+
+}
+
+.about-card h3{
+
+    font-size:19px;
+
+}
+
+.about-card p{
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.about{
+
+    padding:60px 0;
+
+}
+
+.about-image img{
+
+    max-width:300px;
+
+}
+
+}
+
+
 
 /* ===========================
    SERVICES
@@ -215,31 +619,81 @@ section{
 
 @media (max-width:992px){
 
+.services{
+
+    padding:80px 0;
+
+}
+
 .services-grid{
+
     grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.service-card{
+
+    padding:35px 28px;
+
 }
 
 }
 
 @media (max-width:768px){
 
+.services{
+
+    padding:70px 0;
+
+}
+
 .services-grid{
+
     grid-template-columns:1fr;
+
 }
 
 .service-card{
-    padding:30px 25px;
-}
 
-.section-title{
-    font-size:34px;
-}
-
-.section-description{
-    font-size:16px;
-}
+    padding:30px 24px;
 
 }
+
+.service-card h3{
+
+    font-size:22px;
+
+}
+
+.service-card p{
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.services{
+
+    padding:60px 0;
+
+}
+
+.service-card{
+
+    padding:28px 20px;
+
+}
+
+}
+
+
 
 /* ===========================
    WORK
@@ -247,115 +701,197 @@ section{
 
 @media (max-width:992px){
 
+.work{
+
+    padding:80px 0;
+
+}
+
 .work-grid{
+
     grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.work-card{
+
+    padding:35px 28px;
+
 }
 
 }
 
 @media (max-width:768px){
 
+.work{
+
+    padding:70px 0;
+
+}
+
 .work-grid{
+
     grid-template-columns:1fr;
+
 }
 
 .work-card{
-    padding:30px 25px;
+
+    padding:30px 24px;
+
 }
 
 .work-number{
-    font-size:34px;
+
+    width:60px;
+
+    height:60px;
+
+    font-size:24px;
+
+}
+
+.work-card h3{
+
+    font-size:21px;
+
+}
+
+.work-card p{
+
+    font-size:15px;
+
+    line-height:1.7;
+
 }
 
 }
+
+@media (max-width:480px){
+
+.work{
+
+    padding:60px 0;
+
+}
+
+.work-card{
+
+    padding:28px 20px;
+
+}
+
+}
+
+
+
 /* ===========================
    WHY
 =========================== */
 
 @media (max-width:992px){
 
-.why-grid{
-    grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:768px){
-
 .why{
-    padding:60px 0;
-}
 
-.why .section-title{
-    font-size:28px;
-    line-height:1.3;
-}
+    padding:80px 0;
 
-.why .section-description{
-    font-size:16px;
-    line-height:1.6;
 }
 
 .why-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
 }
 
 .why-card{
-    padding:25px 20px;
-    text-align:center;
-    border-radius:20px;
-}
 
-.why-icon{
-    margin:0 auto 15px;
-    width:55px;
-    height:55px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+    padding:35px 28px;
 
-.why-card h3{
-    font-size:20px;
-    margin-bottom:12px;
-}
-
-.why-card p{
-    font-size:15px;
-    line-height:1.6;
-}
-
-}
-
-/* ===========================
-   BLOG
-=========================== */
-
-@media (max-width:992px){
-
-.blog-grid{
-    grid-template-columns:repeat(2,1fr);
 }
 
 }
 
 @media (max-width:768px){
 
-.blog-grid{
+.why{
+
+    padding:70px 0;
+
+}
+
+.why-grid{
+
     grid-template-columns:1fr;
-}
-
-.blog-card{
-    padding:30px 25px;
-}
-
-.blog-card h3{
-    font-size:22px;
-}
 
 }
+
+.why-card{
+
+    padding:30px 24px;
+
+    text-align:center;
+
+}
+
+.why-icon{
+
+    width:60px;
+
+    height:60px;
+
+    margin:0 auto 20px;
+
+}
+
+.why-card h3{
+
+    font-size:21px;
+
+}
+
+.why-card p{
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.why{
+
+    padding:60px 0;
+
+}
+
+.why-card{
+
+    padding:28px 20px;
+
+}
+
+.why-icon{
+
+    width:54px;
+
+    height:54px;
+
+}
+
+}
+/* ==========================================
+   RESPONSIVE
+   PART 3
+   Contacts + Footer + Buttons
+========================================== */
+
 
 /* ===========================
    CONTACTS
@@ -363,34 +899,117 @@ section{
 
 @media (max-width:992px){
 
+.contacts{
+
+    padding:80px 0;
+
+}
+
 .contacts-container{
+
     grid-template-columns:1fr;
+
     gap:50px;
+
+}
+
+.contact-info{
+
+    text-align:center;
+
+}
+
+.contact-item{
+
+    justify-content:center;
+
+}
+
+.contact-form{
+
+    max-width:100%;
+
 }
 
 }
 
 @media (max-width:768px){
 
-.contacts h2{
-    font-size:32px;
+.contacts{
+
+    padding:70px 0;
+
 }
 
-.contact-form input,
-.contact-form textarea{
-    font-size:16px;
+.contact-info{
+
+    order:1;
+
 }
 
-.contact-form button{
-    width:100%;
+.contact-form{
+
+    order:2;
+
 }
 
 .contact-item{
+
     flex-direction:column;
+
+    align-items:center;
+
     text-align:center;
+
+    gap:12px;
+
+}
+
+.contact-icon{
+
+    margin:0;
+
+}
+
+.contact-form{
+
+    padding:30px 25px;
+
+}
+
+.contact-form input,
+
+.contact-form textarea{
+
+    font-size:16px;
+
+}
+
+.contact-form button{
+
+    width:100%;
+
 }
 
 }
+
+@media (max-width:480px){
+
+.contacts{
+
+    padding:60px 0;
+
+}
+
+.contact-form{
+
+    padding:25px 20px;
+
+}
+
+}
+
+
 
 /* ===========================
    FOOTER
@@ -398,54 +1017,268 @@ section{
 
 @media (max-width:992px){
 
-.footer-container{
-    grid-template-columns:1fr;
-    gap:40px;
-    text-align:center;
+.footer{
+
+    padding:70px 0 25px;
+
 }
 
-.footer-logo img{
-    margin:0 auto 20px;
+.footer-container{
+
+    grid-template-columns:1fr;
+
+    gap:45px;
+
+    text-align:center;
+
+}
+
+.footer-logo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.footer-logo p{
+
+    max-width:100%;
+
 }
 
 .footer-menu,
+
 .footer-contacts{
+
     align-items:center;
+
 }
 
 }
-@media(max-width:768px){
 
-.header .container{
-    flex-direction:row;
-    justify-content:space-between;
+@media (max-width:768px){
+
+.footer{
+
+    padding:60px 0 20px;
+
 }
 
-.menu-toggle{
-    display:block;
+.footer-logo img{
+
+    width:130px;
+
 }
 
-.nav{
-    position:absolute;
-    top:90px;
-    left:0;
+.footer h3{
+
+    font-size:18px;
+
+}
+
+.footer-logo p{
+
+    font-size:15px;
+
+}
+
+.footer-menu a,
+
+.footer-contacts a{
+
+    font-size:15px;
+
+}
+
+.footer-bottom{
+
+    margin-top:40px;
+
+    padding-top:20px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.footer-logo img{
+
+    width:115px;
+
+}
+
+.footer-bottom p{
+
+    font-size:13px;
+
+}
+
+}
+
+
+
+/* ===========================
+   WHATSAPP
+=========================== */
+
+@media (max-width:768px){
+
+.whatsapp{
+
+    width:60px;
+
+    height:60px;
+
+    right:18px;
+
+    bottom:18px;
+
+}
+
+.whatsapp img{
+
+    width:30px;
+
+    height:30px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.whatsapp{
+
+    width:56px;
+
+    height:56px;
+
+    right:15px;
+
+    bottom:15px;
+
+}
+
+.whatsapp img{
+
+    width:28px;
+
+    height:28px;
+
+}
+
+}
+
+
+
+/* ===========================
+   BUTTON "UP"
+=========================== */
+
+@media (max-width:768px){
+   
+
+  
+    body{
+
+        padding-top:90px;
+
+    }
+
+    html{
+
+        scroll-padding-top:90px;
+
+    }
+
+
+
+#topBtn{
+
+    width:52px;
+
+    height:52px;
+
+    right:18px;
+
+    bottom:90px;
+
+    font-size:22px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+#topBtn{
+
+    width:48px;
+
+    height:48px;
+
+    right:15px;
+
+    bottom:82px;
+
+    font-size:20px;
+
+}
+
+}
+
+
+
+/* ===========================
+   SMALL DEVICES
+=========================== */
+
+@media (max-width:360px){
+
+.section-title{
+
+    font-size:24px;
+
+}
+
+.section-description{
+
+    font-size:14px;
+
+}
+
+.hero h1{
+
+    font-size:26px;
+
+}
+
+.hero-button{
+
     width:100%;
-    background:#fff;
-    flex-direction:column;
-    align-items:center;
-    padding:30px 0;
-    gap:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
 
-    display:none;
 }
 
-.nav.active{
-    display:flex;
+.contact-form{
+
+    padding:22px 16px;
+
 }
 
-.header-btn{
-    display:none;
+.service-card,
+
+.work-card,
+
+.why-card,
+
+.about-card{
+
+    padding:24px 18px;
+
 }
 
 }

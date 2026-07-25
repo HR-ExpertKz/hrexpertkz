@@ -1,94 +1,144 @@
-.header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background: #0A2342;
-    z-index: 1000;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+    position:sticky;
+    top:0;
+    width:100%;
+    background:rgba(10,35,66,.95);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    z-index:1000;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
-.header .container {
-    width: 90%;
-    max-width: 1300px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 20px;
-    position: relative;
+.header .container{
+    width:90%;
+    max-width:1300px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
+    position:relative;
 }
 
-.logo img {
-    height: 65px;
+/* ==========================
+   LOGO
+========================== */
+
+.logo img{
+    height:65px;
+    transition:.3s ease;
 }
 
-.nav {
-    display: flex;
-    gap: 30px;
+.logo:hover img{
+    transform:scale(1.05);
+}
+
+/* ==========================
+   MENU
+========================== */
+
+.nav{
+    display:flex;
+    gap:30px;
 }
 
 .nav a{
-    color:#ffffff !important;
+    position:relative;
+    color:#ffffff;
     text-decoration:none;
     font-size:17px;
     font-weight:600;
-    transition:.3s;
+    transition:color .3s ease;
 }
 
-.nav a:hover {
-    color: #D4AF37;
+.nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:#D4AF37;
+    transition:width .3s ease;
 }
 
-.header-btn {
-    background: #D4AF37;
-    color: #fff;
-    text-decoration: none;
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: .3s;
+.nav a:hover{
+    color:#D4AF37;
 }
 
-.header-btn:hover {
-    background: #E6BE4D;
+.nav a:hover::after{
+    width:100%;
 }
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 32px;
-    cursor: pointer;
-}
-
 
 /* ==========================
-   МОБИЛЬНАЯ ВЕРСИЯ
+   BUTTON
 ========================== */
 
+.header-btn{
+    background:#D4AF37;
+    color:#ffffff;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s ease;
+    box-shadow:0 8px 20px rgba(212,175,55,.25);
+}
+
+.header-btn:hover{
+    background:#E6BE4D;
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(212,175,55,.35);
+}
+
 /* ==========================
-   MOBILE MENU
+   BURGER
+========================== */
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#ffffff;
+    font-size:32px;
+    cursor:pointer;
+    transition:color .3s ease;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus{
+    color:#D4AF37;
+}
+
+.menu-toggle.active{
+    color:#D4AF37 !important;
+}
+
+/* ==========================
+   MOBILE
 ========================== */
 
 @media (max-width:768px){
 
     .header{
-        position:sticky;
         z-index:9999;
     }
 
     .header .container{
-        position:relative;
+        padding:15px 20px;
+    }
+
+    .logo img{
+        height:55px;
     }
 
     .menu-toggle{
         display:block;
-        background:none;
-        border:none;
-        color:#fff;
-        font-size:32px;
-        cursor:pointer;
     }
 
     .header-btn{
@@ -103,9 +153,10 @@
         width:100%;
         background:#0A2342;
         flex-direction:column;
+        gap:0;
         padding:0;
         margin:0;
-        z-index:99999;
+        box-shadow:0 12px 30px rgba(0,0,0,.18);
     }
 
     .nav.active{
@@ -116,15 +167,19 @@
         display:block;
         width:100%;
         padding:18px 20px;
-        color:#fff;
-        background:#0A2342;
         text-align:center;
-        text-decoration:none;
-        border-bottom:1px solid rgba(255,255,255,.1);
+        color:#ffffff;
+        background:#0A2342;
+        border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    .nav a:hover{
-        background:#14385f;
+    .nav a::after{
+        display:none;
+    }
+
+    .nav a:hover,
+    .nav a:active{
+        background:#14385F;
         color:#D4AF37;
     }
 }

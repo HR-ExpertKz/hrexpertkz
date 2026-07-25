@@ -1,21 +1,111 @@
+/* ===============================
+   BACK TO TOP
+================================ */
+
 #topBtn{
+
     position:fixed;
+
     right:25px;
+
     bottom:105px;
-    width:55px;
-    height:55px;
+
+    width:58px;
+
+    height:58px;
+
     border:none;
+
     border-radius:50%;
-    background:#D4AF37;
-    color:#fff;
-    font-size:26px;
+
+    background:#0A2342;
+
+    color:#D4AF37;
+
+    font-size:24px;
+
+    font-weight:700;
+
     cursor:pointer;
-    display:none;
-    transition:.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
-    z-index:999;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transform:translateY(20px);
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease,
+        transform .35s ease,
+        background .3s ease,
+        color .3s ease,
+        box-shadow .3s ease;
+
+    box-shadow:0 10px 28px rgba(10,35,66,.25);
+
+    z-index:998;
+
+}
+
+/* Показывается через JS */
+
+#topBtn.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+    transform:translateY(0);
+
 }
 
 #topBtn:hover{
+
+    background:#D4AF37;
+
+    color:#ffffff;
+
     transform:translateY(-4px);
+
+    box-shadow:0 16px 35px rgba(212,175,55,.35);
+
+}
+
+#topBtn:active{
+
+    transform:scale(.95);
+
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:768px){
+
+    #topBtn{
+
+        width:52px;
+
+        height:52px;
+
+        right:18px;
+
+        bottom:90px;
+
+        font-size:22px;
+
+    }
+
 }

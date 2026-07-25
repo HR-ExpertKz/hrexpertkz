@@ -1,46 +1,112 @@
+/* ===========================
+   WORK
+=========================== */
+
 .work{
-    padding:100px 0;
-    background:#ffffff;
+
+    padding:110px 0;
+
+    background: linear-gradient(180deg, #F7F9FC 0%, #EEF4FA 100%);
+
 }
 
 .work .container{
+
     width:90%;
+
     max-width:1200px;
+
     margin:auto;
+
+}
+
+.work .section-subtitle{
+
+    text-align:center;
+
+}
+
+.work .section-title{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:20px auto;
+
+}
+
+.work .section-description{
+
+    max-width:760px;
+
+    margin:0 auto 80px;
+
+    text-align:center;
+
+    color:#555;
+
+    line-height:1.8;
+
 }
 
 .work-grid{
+
+    position:relative;
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:30px;
-    margin-top:60px;
+
+    align-items:start;
+
+}
+
+.work-grid::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:45px;
+
+    left:12%;
+
+    right:12%;
+
+    height:3px;
+
+    background:#D4AF37;
+
+    z-index:1;
+
 }
 
 .work-card{
-    background:#fff;
-    padding:40px 30px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    transition:.3s;
-}
 
-.work-card:hover{
-    transform:translateY(-8px);
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
 }
 
 .work-number{
 
-    width:70px;
-    height:70px;
+    width:90px;
 
-    margin:auto;
+    height:90px;
+
+    margin:0 auto 30px;
 
     border-radius:50%;
 
     background:#0A2342;
 
-    color:#fff;
+    color:#ffffff;
 
     display:flex;
 
@@ -48,11 +114,25 @@
 
     align-items:center;
 
-    font-size:24px;
+    font-size:28px;
 
-    font-weight:bold;
+    font-weight:700;
 
-    margin-bottom:25px;
+    border:6px solid #F7F9FC;
+
+    box-shadow:0 12px 30px rgba(10,35,66,.15);
+
+    transition:.35s;
+
+}
+
+.work-card:hover .work-number{
+
+    background:#D4AF37;
+
+    color:#0A2342;
+
+    transform:scale(1.08);
 
 }
 
@@ -60,66 +140,124 @@
 
     color:#0A2342;
 
-    margin-bottom:15px;
-
     font-size:24px;
+
+    margin-bottom:15px;
 
 }
 
 .work-card p{
 
-    color:#666;
+    color:#555;
 
     line-height:1.8;
 
+    font-size:16px;
+
+    max-width:240px;
+
+    margin:0 auto;
+
 }
+
+/* ===========================
+   TABLET
+=========================== */
 
 @media(max-width:992px){
 
+.work{
+
+    padding:90px 0;
+
+}
+
 .work-grid{
 
-grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
+
+    gap:50px;
+
+}
+
+.work-grid::before{
+
+    display:none;
 
 }
 
 }
+
+/* ===========================
+   MOBILE
+=========================== */
 
 @media(max-width:768px){
 
 .work{
+
     padding:70px 0;
+
 }
 
 .work .container{
+
     width:100%;
+
     padding:0 20px;
+
     box-sizing:border-box;
+
+}
+
+.work .section-title{
+
+    font-size:30px;
+
+}
+
+.work .section-description{
+
+    margin-bottom:50px;
+
+    font-size:16px;
+
 }
 
 .work-grid{
-    grid-template-columns:1fr;
-    gap:20px;
-}
 
-.work-card{
-    padding:30px 20px;
-    border-radius:20px;
+    grid-template-columns:1fr;
+
+    gap:40px;
+
 }
 
 .work-number{
-    width:60px;
-    height:60px;
-    font-size:22px;
+
+    width:72px;
+
+    height:72px;
+
+    font-size:24px;
+
     margin-bottom:20px;
+
 }
 
 .work-card h3{
-    font-size:21px;
+
+    font-size:22px;
+
 }
 
 .work-card p{
+
+    max-width:100%;
+
     font-size:15px;
-    line-height:1.6;
+
+    line-height:1.7;
+
 }
 
 }

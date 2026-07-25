@@ -1,131 +1,80 @@
-/* ===========================
+/* ==========================
    PRELOADER
-=========================== */
+========================== */
 
 #preloader{
-
     position:fixed;
-
     inset:0;
-
-    background:#ffffff;
-
-    z-index:99999;
-
+    background:#fff;
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    transition:.8s;
-
+    z-index:99999;
+    transition:opacity .6s ease, visibility .6s ease;
 }
 
 #preloader.hide{
-
     opacity:0;
-
     visibility:hidden;
-
 }
 
 .loader{
-
-    text-align:center;
-
     animation:fadeUp .8s ease;
-
 }
 
 .loader img{
-
-    width:120px;
-
-    height:120px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.12);
-
-    margin-bottom:25px;
-
-}
-
-.loader h2{
-
-    color:#0A2342;
-
-    font-size:34px;
-
-    margin-bottom:10px;
-
-}
-
-.loader p{
-
-    color:#888;
-
-    font-size:16px;
-
-}
-
-.loader::after{
-
-    content:"";
-
+    width:420px;
+    max-width:90vw;
+    height:auto;
     display:block;
-
-    width:120px;
-
-    height:5px;
-
-    border-radius:30px;
-
-    margin:35px auto 0;
-
-    background:linear-gradient(90deg,#D4AF37,#0A2342,#D4AF37);
-
-    background-size:300%;
-
-    animation:loading 1.5s infinite linear;
-
-}
-
-@keyframes loading{
-
-0%{
-
-background-position:0%;
-
-}
-
-100%{
-
-background-position:300%;
-
-}
-
+    filter:drop-shadow(0 15px 35px rgba(0,0,0,.12));
 }
 
 @keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+/* ==========================
+   Планшеты
+========================== */
 
-from{
+@media (max-width: 992px){
 
-opacity:0;
-
-transform:translateY(20px);
+    .loader img{
+        width:360px;
+        max-width:85vw;
+    }
 
 }
 
-to{
+/* ==========================
+   Телефоны
+========================== */
 
-opacity:1;
+@media (max-width:768px){
 
-transform:translateY(0);
+    .loader img{
+        width:300px;
+        max-width:90vw;
+    }
 
 }
+
+/* ==========================
+   Маленькие телефоны
+========================== */
+
+@media (max-width:480px){
+
+    .loader img{
+        width:240px;
+        max-width:92vw;
+    }
 
 }
