@@ -37,9 +37,9 @@ window.addEventListener("load", () => {
 
             preloader.remove();
 
-        }, 1000);
+        }, 800);
 
-    }, 3000);
+    }, 2500);
 
 });
 
