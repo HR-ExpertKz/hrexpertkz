@@ -39,7 +39,7 @@ window.addEventListener("load", () => {
 
         }, 800);
 
-    }, 2500);
+    }, 1500);
 
 });
 
