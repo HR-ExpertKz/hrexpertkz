@@ -181,3 +181,109 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 
 });
+// =============================
+// Отправка формы в Make
+// =============================
+
+const form = document.getElementById("contactForm");
+
+if (form) {
+
+    const submitBtn = document.getElementById("submitBtn");
+    const btnText = document.getElementById("btnText");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", async (e) => {
+
+        e.preventDefault();
+
+        if (submitBtn) {
+
+            submitBtn.disabled = true;
+
+        }
+
+        if (btnText) {
+
+            btnText.textContent = "Отправка...";
+
+        }
+
+        const data = new FormData(form);
+
+        try {
+
+            const response = await fetch(
+                "https://hook.eu1.make.com/qjyz7a9umkqbkgrstfh3gsvm71hwq5g4",
+                {
+                    method: "POST",
+                    body: data
+                }
+            );
+
+            if (!response.ok) {
+
+                throw new Error("Ошибка");
+
+            }
+
+            form.reset();
+
+            if (successMessage) {
+
+                successMessage.classList.add("show");
+
+            }
+
+            if (btnText) {
+
+                btnText.textContent = "✓ Заявка отправлена";
+
+            }
+
+            setTimeout(() => {
+
+                if (successMessage) {
+
+                    successMessage.classList.remove("show");
+
+                }
+
+                if (submitBtn) {
+
+                    submitBtn.disabled = false;
+
+                }
+
+                if (btnText) {
+
+                    btnText.textContent = "Получить консультацию";
+
+                }
+
+            }, 4000);
+
+        }
+
+        catch (error) {
+
+            alert("Не удалось отправить заявку. Попробуйте ещё раз.");
+
+            if (submitBtn) {
+
+                submitBtn.disabled = false;
+
+            }
+
+            if (btnText) {
+
+                btnText.textContent = "Получить консультацию";
+
+            }
+
+        }
+
+    });
+
+}
+
