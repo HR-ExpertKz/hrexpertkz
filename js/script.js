@@ -21,29 +21,25 @@ window.addEventListener("pageshow", () => {
 // PRELOADER
 // =============================
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-    window.scrollTo(0, 0);
+    const preloader=document.getElementById("preloader");
 
-    const preloader = document.getElementById("preloader");
+    if(!preloader) return;
 
-    if (!preloader) return;
-
-    setTimeout(() => {
+    setTimeout(()=>{
 
         preloader.classList.add("hide");
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
             preloader.remove();
 
-        }, 600);
+        },900);
 
-    }, 1500);
+    },2800);
 
 });
-
-
 // =============================
 // Анимация появления блоков
 // =============================
